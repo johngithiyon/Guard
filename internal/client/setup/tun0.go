@@ -14,8 +14,6 @@ func Createtun0() error {
 		 log.Println("runerr",runerr)
 		 return runerr
 	   }
-
 	   
-
 	  return nil 
 }
