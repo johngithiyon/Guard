@@ -18,5 +18,11 @@ func Assignip(ip string) error {
 		 return ipassignerr
 	 }
 
+	 uperr := Tun0Upstatus()
+
+	 if uperr != nil {
+		    return uperr
+	 }
+
 	 return nil
 }
