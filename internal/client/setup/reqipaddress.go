@@ -24,6 +24,8 @@ func ReqIpaddress() error   {
 
 	   buffer := make([]byte,1024)
 
+	   //Reading from the Socket For the Ip 
+
 	   for {
   
 		   length,readerr := conn.Read(buffer)
@@ -33,7 +35,15 @@ func ReqIpaddress() error   {
 				 return readerr
 		   }
 
-		   log.Println(string(buffer[:length]))
+		   //Check if there is no Ip in the server
+
+		   if string(buffer[:length]) != "Ip insufficient" {
+
+			        //Call the assign ip function 
+			            
+			        Assignip(string(buffer[:length]))
+			 
+		   }
 
 	   }
 }
