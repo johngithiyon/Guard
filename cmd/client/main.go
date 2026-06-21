@@ -1,8 +1,15 @@
 package main
 
-import "github.com/johngithiyon/Guard/internal/client/setup"
+import (
+	"github.com/johngithiyon/Guard/internal/client/services"
+	"github.com/johngithiyon/Guard/internal/client/setup"
+)
 
 func main() {
 
-	   setup.Tun0exists()
+	  existerr :=  setup.Tun0exists()
+
+	  if existerr != nil {
+		 services.CreateReadtun0()
+	  }
 }
