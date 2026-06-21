@@ -26,12 +26,14 @@ func CreateReadtun0() error {
 	   tun,createrr := water.New(config)
 
 	   if createrr != nil {
+		    log.Println("Create err",createrr)
 		    return createrr
 	   }
 
 	   iperr := setup.ReqIpaddress()
 
 	   if iperr != nil {
+		   log.Println("iperr",iperr)
 		   return iperr 
 	   }
     
@@ -46,7 +48,7 @@ func CreateReadtun0() error {
 				return readerr
 			}
 
-			log.Println(buffer) 
+			log.Println("this is the data",string(buffer)) 
 		      
 	   }
 }
