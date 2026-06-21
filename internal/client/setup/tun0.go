@@ -1,6 +1,7 @@
 package setup
 
 import (
+	"log"
 	"os/exec"
 )
 
@@ -8,12 +9,20 @@ import (
 
 func Createtun0() error {
 
-	  _,runerr := exec.Command("ip", "tuntap", "add" ,"dev","tun0" ,"mode" ,"tun").CombinedOutput()
+	  runinfo,runerr := exec.Command("ip", "tuntap", "add" ,"dev","tun0" ,"mode" ,"tun").CombinedOutput()
+
+	  log.Println(string(runinfo))
 
        if runerr != nil {
-		 Ipallocator()
-		 return runerr
+		log.Println("Tun0 Creation Error",runerr)
+		return runerr
 	   }
+
+	  allocaterr := ReqIpaddress()
+
+	  if allocaterr != nil {
+		  return allocaterr
+	  }
 
 	  return nil 
 }
