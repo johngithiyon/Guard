@@ -1,8 +1,10 @@
 package setup
 
-import "net"
+import (
+	"net"
+)
 
-//Function to check the tun0 interface exists or not 
+//Function to check the tun0 interface exists or not
 
 func Tun0exists() error {
  
@@ -11,11 +13,7 @@ func Tun0exists() error {
 	_,interfacerr := net.InterfaceByName("guard0")
 
 	   if interfacerr != nil {
-            createrr :=  Createtun0()
-			
-			if createrr != nil {
-                 return createrr
-			}
+            return interfacerr
 	   } 
 
        return nil 
