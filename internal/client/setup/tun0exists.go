@@ -7,8 +7,8 @@ import "net"
 func Tun0exists() error {
  
 	 // Ask the linux kernal for the list of interfaces on go check the tun0 interface
-	 
-	_,interfacerr := net.InterfaceByName("tun0")
+
+	_,interfacerr := net.InterfaceByName("guard0")
 
 	   if interfacerr != nil {
             createrr :=  Createtun0()

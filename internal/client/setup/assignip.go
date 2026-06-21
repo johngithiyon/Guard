@@ -9,7 +9,7 @@ import (
 
 func Assignip(ip string) error {
 
-	 ipassign,ipassignerr := exec.Command("ip","addr","add",ip+"/24","dev","tun0").CombinedOutput()
+	 ipassign,ipassignerr := exec.Command("ip","addr","add",ip+"/24","dev","guard0").CombinedOutput()
 
 	 log.Println(string(ipassign))
 

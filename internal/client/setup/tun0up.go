@@ -7,7 +7,7 @@ import (
 
 func Tun0Upstatus() error {
 
-	   status,uperr := exec.Command("ip","link","set","tun0","up").CombinedOutput()
+	   status,uperr := exec.Command("ip","link","set","guard0","up").CombinedOutput()
 
        log.Println("Tun0 status",status)
 
