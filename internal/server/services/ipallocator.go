@@ -5,24 +5,30 @@ import (
 	"net"
 )
 
-var ips = map[string]bool {
+//centralized slice for the ip list
 
-	 "10.0.0.1":false,
-	 "10.0.0.2":false,
-	 "10.0.0.3":false,
+var ips = []string {
+
+	 "10.0.0.1",
+	 "10.0.0.2",
+	 "10.0.0.3",
 } 
+
+//Function for the ipallocation
+
+//Using queue metheod for the o(1) ip allocation
 
 func Ipallocator(conn net.PacketConn,addr net.Addr)  {
 
-	     for index,_ := range ips{
+	     if len(ips) !=0 {
 
-			     if ips[index] != true{
-					conn.WriteTo([]byte(index),addr)
-					ips[index] = true 
-					break
-				 } 
-		 }
+	     conn.WriteTo([]byte(ips[0]),addr)
 
+		 ips = ips[1:]
+	  
 		 log.Println(ips)
 
+		 } else {
+			conn.WriteTo([]byte("Ip insufficient"),addr)
+		 }
 }
