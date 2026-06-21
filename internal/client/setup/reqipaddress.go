@@ -1,6 +1,7 @@
 package setup
 
 import (
+	"errors"
 	"log"
 	"net"
 )
@@ -41,9 +42,17 @@ func ReqIpaddress() error   {
 
 			        //Call the assign ip function 
 			            
-			        Assignip(string(buffer[:length]))
+			       assignerr :=  Assignip(string(buffer[:length]))
+
+				   if assignerr != nil {
+					   return assignerr
+				   }
 			 
+		   } else {
+			    return errors.New("Ip Insufficient")
 		   }
+
+		   return nil 
 
 	   }
 }
