@@ -30,5 +30,6 @@ func Ipallocator(conn net.PacketConn,addr net.Addr)  {
 
 		 } else {
 			conn.WriteTo([]byte("Ip insufficient"),addr)
+			return
 		 }
 }
