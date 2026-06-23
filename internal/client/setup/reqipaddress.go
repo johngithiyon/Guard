@@ -8,18 +8,7 @@ import (
 
 //Send the request to the Vpn Server
 
-func ReqIpaddress() error   {
-
-	   //make the conn object for Vpn server
-
-	   conn,connerr := net.Dial("udp","127.0.0.1:8080")
-
-       if connerr != nil {
-              log.Println("Cannot able to connect  to the server",connerr)
-			  return  connerr
-	   }
-
-	   defer conn.Close()
+func ReqIpaddress(conn net.Conn) error   {
 
 	   //send the ip request to the vpn server
 
