@@ -30,7 +30,7 @@ func CreateReadtun0() error {
 		    return createrr
 	   }
 
-	   iperr := setup.ReqIpaddress()
+	   iperr := setup.ReqIpaddress(Conn)
 
 	   if iperr != nil {
 		   log.Println("iperr",iperr)
@@ -42,13 +42,18 @@ func CreateReadtun0() error {
 	   
 	   for {
            
-		    _,readerr :=  tun.Read(buffer)
+		    length,readerr :=  tun.Read(buffer)
 
 			if readerr != nil {
 				return readerr
 			}
 
-			log.Println("this is the data",string(buffer)) 
+			if length > 0 {
+				 log.Println("Recieved packets in client",length,buffer[:length])
+                 Sendpackets(buffer[:length])
+			}
+
+			
 		      
 	   }
 }
