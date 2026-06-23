@@ -19,6 +19,8 @@ func ReqIpaddress() error   {
 			  return  connerr
 	   }
 
+	   defer conn.Close()
+
 	   //send the ip request to the vpn server
 
 	   conn.Write([]byte("Ip"))
