@@ -7,14 +7,14 @@ import (
 
 func Tun0Upstatus() error {
 
-	   status,uperr := exec.Command("ip","link","set","guard0","up").CombinedOutput()
+	status, uperr := exec.Command("ip", "link", "set", "guard0", "up").CombinedOutput()
 
-       log.Println("Tun0 status",status)
+	log.Println("Tun0 status", status)
 
-	   if uperr != nil {
-		    log.Println("status error",uperr)
-		    return uperr
-	   }
+	if uperr != nil {
+		log.Println("status error", uperr)
+		return uperr
+	}
 
-	   return nil 
+	return nil
 }
