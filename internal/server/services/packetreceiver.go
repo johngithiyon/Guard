@@ -3,11 +3,12 @@ package serverservices
 import (
 	"log"
 	"net"
+	"github.com/songgao/water"
 )
 
-//Used to receive the packet from the connection 
+//Used to receive the packet from the connection
 
-func PacketReceiver(conn net.PacketConn) error {
+func PacketReceiver(conn net.PacketConn,tun *water.Interface) error {
 
 	// Creating a Byte Slice to store the packets
 
@@ -26,8 +27,9 @@ func PacketReceiver(conn net.PacketConn) error {
 
 		 if string(buffer[:length]) == "Ip" {
 			   Ipallocator(conn,addr)
+		 } else {
+         		 Writetun0(tun,buffer[:length])
 		 }
-
-		
+         		
 	}
 }
