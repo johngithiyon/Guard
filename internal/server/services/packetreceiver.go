@@ -1,4 +1,4 @@
-package services
+package serverservices
 
 import (
 	"log"
@@ -27,5 +27,7 @@ func PacketReceiver(conn net.PacketConn) error {
 		 if string(buffer[:length]) == "Ip" {
 			   Ipallocator(conn,addr)
 		 }
+
+		
 	}
 }
