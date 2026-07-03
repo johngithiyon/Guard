@@ -5,6 +5,7 @@ import (
 	"net"
 
 	"github.com/johngithiyon/Guard/internal/server/services"
+	serversetup "github.com/johngithiyon/Guard/internal/server/setup"
 )
 
 func main() {
@@ -17,10 +18,22 @@ func main() {
 	   
 	   if connerr != nil {
 		      log.Println("Connection err",connerr)
+			  return 
 	   }
 
 	   defer conn.Close()
-	   
-	   services.PacketReceiver(conn)
+	 
+	  existerr :=  serversetup.Tun0exists()
+
+	  if existerr != nil {
+		    tun,createrr := serversetup.Createtun0()
+
+			if createrr != nil {
+                   return 
+			}
+
+			serverservices.PacketReceiver(conn,tun)
+
+	  }
 
 }
