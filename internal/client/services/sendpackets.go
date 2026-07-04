@@ -2,9 +2,11 @@ package services
 
 import (
 	"log"
+
+	"github.com/songgao/water"
 )
 
-func Sendpackets(packets []byte) error {
+func Sendpackets(tun *water.Interface,packets []byte) error {
 
 	 _,writerr :=   Conn.Write(packets)
 
@@ -12,6 +14,8 @@ func Sendpackets(packets []byte) error {
 		    log.Println("Write err in send packets",writerr)
 			return writerr
 	 }
+
+	 Readresp(tun)
        
 	 return nil
 }
