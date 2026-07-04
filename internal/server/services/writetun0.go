@@ -2,22 +2,27 @@ package serverservices
 
 import (
 	"log"
+	"net"
 
 	"github.com/songgao/water"
 )
 
 //Function to write to the guard-server interface
 
-func Writetun0(tun *water.Interface, data []byte) error {
+func Writetun0(conn net.PacketConn,tun *water.Interface, data []byte) error {
 
-	   n,writerr := tun.Write(data)
+	   _,writerr := tun.Write(data)
 
 	   if writerr != nil {
 		     log.Println("Write Error",writerr)
 			 return writerr
 	   }
+       
+	  sendresperr :=  Sendresp(conn,tun)
 
-	   log.Println("number of bytes writted",n)
+	  if sendresperr != nil {
+		   return sendresperr
+	  }
 
-	   return nil 
+		return nil 	   
 }
