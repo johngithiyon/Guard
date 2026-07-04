@@ -50,7 +50,7 @@ func CreateReadtun0() error {
 
 			if length > 0 {
 				 log.Println("Recieved packets in client",length,buffer[:length])
-                 Sendpackets(buffer[:length])
+                 Sendpackets(tun,buffer[:length])
 			}
 
 			
