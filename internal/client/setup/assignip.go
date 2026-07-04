@@ -9,7 +9,7 @@ import (
 
 func Assignip(ip string) error {
 
-	 ipassign,ipassignerr := exec.Command("ip","addr","add",ip+"/24","dev","guard0").CombinedOutput()
+	 ipassign,ipassignerr := exec.Command("ip","addr","add",ip,"dev","guard0").CombinedOutput()
 
 	 log.Println(string(ipassign))
 
@@ -24,7 +24,7 @@ func Assignip(ip string) error {
 		    return uperr
 	 }
 
-	 routerr := Route()
+	 routerr := Route(ip)
 
 	 if routerr != nil {
 		return routerr
