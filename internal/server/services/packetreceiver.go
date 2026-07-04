@@ -28,7 +28,7 @@ func PacketReceiver(conn net.PacketConn,tun *water.Interface) error {
 		 if string(buffer[:length]) == "Ip" {
 			   Ipallocator(conn,addr)
 		 } else {
-         		 Writetun0(tun,buffer[:length])
+         		 Writetun0(conn,tun,buffer[:length])
 		 }
          		
 	}
