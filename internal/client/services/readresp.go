@@ -12,6 +12,8 @@ func Readresp(tun *water.Interface) error  {
         
 	    buffer := make([]byte,1024)
 
+		for {
+
         length,readerr := Conn.Read(buffer)
 
 		if readerr != nil {
@@ -21,5 +23,7 @@ func Readresp(tun *water.Interface) error  {
 
 		tun.Write(buffer[:length])
 
-	   return nil
+	    return nil
+
+		}  
 }
