@@ -21,8 +21,12 @@ func Readresp(tun *water.Interface) error  {
 			  return readerr
 		}
 
-		tun.Write(buffer[:length])
-
+		_,writerr := tun.Write(buffer[:length])
+        
+		if writerr != nil {
+			 return writerr
+		}
+		
 	    return nil
 
 		}  
