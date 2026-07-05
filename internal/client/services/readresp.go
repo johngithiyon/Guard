@@ -27,7 +27,5 @@ func Readresp(tun *water.Interface) error  {
 			 return writerr
 		}
 		
-	    return nil
-
 		}  
 }
