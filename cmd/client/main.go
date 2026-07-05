@@ -21,4 +21,6 @@ func main() {
 	  if existerr != nil {
 		  services.Createtun0()
 	  }
+
+	  select{}
 }
