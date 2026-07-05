@@ -38,4 +38,8 @@ func main() {
 
 	  }
 
+	  //make the process keep alive 
+
+	  select{}
+
 }
