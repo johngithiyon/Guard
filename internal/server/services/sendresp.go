@@ -41,7 +41,6 @@ func Sendresp(conn net.PacketConn,tun *water.Interface) error {
 				return writerr
 			}
             
-			return nil 
 	   }
 
 }
