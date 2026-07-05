@@ -38,6 +38,8 @@ func Createtun0() error {
 	   }
     
 	   go  Readtun0(tun)
+	   
+	   go Readresp(tun)
 
 	   return nil 
 }
