@@ -19,6 +19,6 @@ func main() {
       existerr :=  setup.Tun0exists()
 
 	  if existerr != nil {
-		 services.CreateReadtun0()
+		  services.Createtun0()
 	  }
 }
