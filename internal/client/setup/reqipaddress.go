@@ -43,7 +43,5 @@ func ReqIpaddress(conn net.Conn) error   {
 			    return errors.New("Ip Insufficient")
 		   }
 
-		   return nil 
-
 	   }
 }
