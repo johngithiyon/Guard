@@ -19,7 +19,12 @@ func main() {
       existerr :=  setup.Tun0exists()
 
 	  if existerr != nil {
-		  services.Createtun0()
+		  createrr := services.Createtun0()
+
+		  if createrr != nil {
+			    log.Println("Create tun err",createrr)
+			    return
+		  }
 	  }
      
 	  //make the process keep alive 
