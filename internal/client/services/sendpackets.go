@@ -14,8 +14,6 @@ func Sendpackets(tun *water.Interface,packets []byte) error {
 		    log.Println("Write err in send packets",writerr)
 			return writerr
 	 }
-
-	 Readresp(tun)
        
 	 return nil
 }
