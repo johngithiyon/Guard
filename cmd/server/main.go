@@ -14,7 +14,7 @@ func main() {
 
 	   // Creates a Udp socket listening on the port 8080 for testing I use localhost you have give you server public Ip address
 
-	   conn,connerr := net.ListenPacket("udp",":8080")
+	   conn,connerr := net.ListenPacket("udp","[2409:40f4:10f7:d8bb:ee1:6a39:8301:9a37]:8080")
 	   
 	   if connerr != nil {
 		      log.Println("Connection err",connerr)
@@ -32,7 +32,9 @@ func main() {
                    return 
 			}
 
-			serverservices.PacketReceiver(conn,tun)
+	    	go serverservices.PacketReceiver(conn,tun)
+
+		
 
 	  }
 
