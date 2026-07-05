@@ -30,15 +30,16 @@ func Createtun0() error {
 		    return createrr
 	   }
 
-	   iperr := setup.ReqIpaddress(Conn)
+	   //Goroutine for send the ip request to the server
 
-	   if iperr != nil {
-		   log.Println("iperr",iperr)
-		   return iperr 
-	   }
+	   go setup.ReqIpaddress(Conn)
+
+	   //Goroutine for read the packets from the tun0 interface
     
 	   go  Readtun0(tun)
-	   
+
+	   //Goroutine for read the packets from the socket 
+
 	   go Readresp(tun)
 
 	   return nil 
