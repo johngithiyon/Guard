@@ -20,12 +20,12 @@ func Readresp(tun *water.Interface) error  {
 			  log.Println("Read err in resp",readerr)
 			  return readerr
 		}
+   
+		writrerr := Writetun0(tun,buffer[:length])
 
-		_,writerr := tun.Write(buffer[:length])
-        
-		if writerr != nil {
-			 return writerr
+		if writrerr != nil {
+			return writrerr
 		}
-		
+	 
 		}  
 }
