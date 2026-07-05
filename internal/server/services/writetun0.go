@@ -17,12 +17,6 @@ func Writetun0(conn net.PacketConn,tun *water.Interface, data []byte) error {
 		     log.Println("Write Error",writerr)
 			 return writerr
 	   }
-       
-	  sendresperr :=  Sendresp(conn,tun)
-
-	  if sendresperr != nil {
-		   return sendresperr
-	  }
-
+	   
 		return nil 	   
 }
