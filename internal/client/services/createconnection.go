@@ -13,7 +13,7 @@ func CreateConnection() error  {
 	 
 	   //make the conn object for Vpn server
 
-	   Conn,Connerr = net.Dial("udp","127.0.0.1:8080")
+	   Conn,Connerr = net.Dial("udp",":8080")
 
 	   if Connerr != nil {
 		     log.Println("Connection error when send packets",Connerr)
