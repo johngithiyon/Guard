@@ -30,9 +30,11 @@ func Createtun0() error {
 		    return createrr
 	   }
 
-	   //Goroutine for send the ip request to the server
+	    reqiperr := setup.ReqIpaddress(Conn)
 
-	   go setup.ReqIpaddress(Conn)
+		if reqiperr != nil {
+			 return reqiperr
+		}
 
 	   //Goroutine for read the packets from the tun0 interface
     
