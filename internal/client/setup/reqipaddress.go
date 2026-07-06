@@ -38,6 +38,10 @@ func ReqIpaddress(conn net.Conn) error   {
 				   if assignerr != nil {
 					   return assignerr
 				   }
+
+				   //After call the ip assign function it have to terminate the loop
+
+				   return nil 
 			 
 		   } else {
 			    return errors.New("Ip Insufficient")
