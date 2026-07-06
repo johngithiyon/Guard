@@ -17,8 +17,6 @@ func ReqIpaddress(conn net.Conn) error   {
 	   buffer := make([]byte,1024)
 
 	   //Reading from the Socket For the Ip 
-
-	   for {
   
 		   length,readerr := conn.Read(buffer)
 
@@ -47,5 +45,4 @@ func ReqIpaddress(conn net.Conn) error   {
 			    return errors.New("Ip Insufficient")
 		   }
 
-	   }
 }
