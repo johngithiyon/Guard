@@ -24,7 +24,7 @@ func Assignip(ip string) error {
 		    return uperr
 	 }
 
-	 routerr := Route(ip)
+	 routerr := Route()
 
 	 if routerr != nil {
 		return routerr
