@@ -24,6 +24,12 @@ func Assignip(ip string) error {
 		    return uperr
 	 }
 
+	 mtuerr := Mtulimit()
+
+	 if mtuerr != nil {
+		return mtuerr
+	 }
+
 	 routerr := Route()
 
 	 if routerr != nil {
