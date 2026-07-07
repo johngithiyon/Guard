@@ -11,7 +11,7 @@ import (
 
 func Assignip() error {
 
-	ipassign,ipassignerr := exec.Command("ip","addr","add","10.0.0.1","dev","guard-server").CombinedOutput()
+	ipassign,ipassignerr := exec.Command("ip","addr","add","10.0.0.1/24","dev","guard-server").CombinedOutput()
 
 	log.Println(string(ipassign))
 
