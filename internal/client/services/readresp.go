@@ -10,7 +10,7 @@ import (
 
 func Readresp(tun *water.Interface) error  {
         
-	    buffer := make([]byte,1024)
+	    buffer := make([]byte,65535)
 
 		for {
 
