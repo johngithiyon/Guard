@@ -20,7 +20,7 @@ func Readtun0(tun *water.Interface) error {
 		 }
 
 		 if length > 0 {
-			  log.Println("Recieved packets in client",length,buffer[:length])
+			  log.Println("Recieved packets in client",length,string(buffer[:length]))
 			  Sendpackets(tun,buffer[:length])
 		 }
 	   
