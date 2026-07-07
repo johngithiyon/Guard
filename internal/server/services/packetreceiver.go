@@ -12,7 +12,7 @@ func PacketReceiver(conn net.PacketConn,tun *water.Interface) error {
 
 	// Creating a Byte Slice to store the packets
 
-	buffer := make([]byte,1024)
+	buffer := make([]byte,65535)
 
 	for {
 
@@ -25,10 +25,12 @@ func PacketReceiver(conn net.PacketConn,tun *water.Interface) error {
 			  continue // I did not have to stop the loop so that other client did not suffer
 		 }
 
+		 log.Println("Received data",string(buffer[:length]))
+
 		 if string(buffer[:length]) == "Ip" {
 			   Ipallocator(conn,addr)
 		 } else {
-         		 Writetun0(conn,tun,buffer[:length])
+         		 Writetun0(tun,buffer[:length])
 		 }
          		
 	}
