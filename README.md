@@ -24,7 +24,7 @@ Guard VPN is designed for learning and experimentation with networking concepts 
 - TUN interfaces
 - UDP communication
 - Packet forwarding
-- Routing
+- Routings
 - Secure remote connectivity
 
 ---
