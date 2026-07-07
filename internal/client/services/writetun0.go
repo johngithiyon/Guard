@@ -10,12 +10,16 @@ import (
 
 func Writetun0(tun *water.Interface,data []byte) error {
 
-	_,writerr := tun.Write(data)
+	lendata,writerr := tun.Write(data)
         
 	if writerr != nil {
 		 log.Println("Writerr in tun interface",writerr)
 		 return writerr
 	}
+
+	if lendata != len(data){
+		log.Println("Partial Packets",lendata,len(data))
+   }
 	
     return nil 
 }
