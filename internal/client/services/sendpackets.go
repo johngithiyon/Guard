@@ -8,12 +8,15 @@ import (
 
 func Sendpackets(tun *water.Interface,packets []byte) error {
 
-	 _,writerr :=   Conn.Write(packets)
+	 lendata,writerr := Conn.Write(packets)
 
 	 if writerr != nil {
 		    log.Println("Write err in send packets",writerr)
-			return writerr
 	 }
+
+	 if lendata != len(packets){
+		log.Println("Partial Packets",lendata,len(packets))
+   }
        
 	 return nil
 }
