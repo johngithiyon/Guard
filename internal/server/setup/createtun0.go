@@ -39,5 +39,11 @@ func Createtun0() (*water.Interface, error) {
 		return nil, uperr
 	}
 
+	mtuerr := Mtulimit()
+
+	if mtuerr != nil {
+		return nil,mtuerr
+	}
+
 	return tun, nil
 }
