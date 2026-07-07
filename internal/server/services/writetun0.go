@@ -2,20 +2,22 @@ package serverservices
 
 import (
 	"log"
-	"net"
 
 	"github.com/songgao/water"
 )
 
 //Function to write to the guard-server interface
 
-func Writetun0(conn net.PacketConn,tun *water.Interface, data []byte) error {
+func Writetun0(tun *water.Interface, data []byte) error {
 
-	   _,writerr := tun.Write(data)
+	   lendata,writerr := tun.Write(data)
 
-	   if writerr != nil {
+	   if writerr != nil  {
 		     log.Println("Write Error",writerr)
-			 return writerr
+	   }
+
+	   if lendata != len(data){
+		    log.Println("Partial Packets",lendata,len(data))
 	   }
 	   
 		return nil 	   
