@@ -9,10 +9,9 @@ func Tun0Upstatus() error {
 
 	status, uperr := exec.Command("ip", "link", "set", "guard-server", "up").CombinedOutput()
 
-	log.Println("Tun0 status", status)
 
 	if uperr != nil {
-		log.Println("status error", uperr)
+		log.Println("Interface Up Error",string(status))
 		return uperr
 	}
 
