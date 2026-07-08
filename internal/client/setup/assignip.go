@@ -11,10 +11,8 @@ func Assignip(ip string) error {
 
 	 ipassign,ipassignerr := exec.Command("ip","addr","add",ip,"dev","guard0").CombinedOutput()
 
-	 log.Println(string(ipassign))
-
 	 if ipassignerr != nil {
-		 log.Println("Ip assign error",ipassignerr)
+		 log.Println("Ip assign error",string(ipassign))
 		 return ipassignerr
 	 }
 
