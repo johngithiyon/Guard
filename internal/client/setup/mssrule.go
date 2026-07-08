@@ -22,7 +22,7 @@ func Mssrule() error {
 	).CombinedOutput()
 
 	if mssrulerr != nil {
-		log.Println("Msserr",status)
+		log.Println("Msserr",string(status))
 		return mssrulerr
 	}
 
