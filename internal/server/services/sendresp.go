@@ -30,8 +30,6 @@ func Sendresp(conn net.PacketConn, tun *water.Interface) error {
 
 		destip := net.IP(packets[16:20])
 
-		log.Println("destip", destip)
-
 		clientip := Allocated[destip.String()]
 
 		if clientip == nil {
