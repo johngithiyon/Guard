@@ -1,7 +1,6 @@
 package serverservices
 
 import (
-	"log"
 	"net"
 )
 
@@ -28,11 +27,8 @@ func Ipallocator(conn net.PacketConn,addr net.Addr)  {
 
 		 Allocated[ips[0]] = addr
 
-		 log.Println(Allocated)
-
 		 ips = ips[1:]
 	  
-		 log.Println(ips)
 
 		 } else {
 			conn.WriteTo([]byte("Ip insufficient"),addr)
