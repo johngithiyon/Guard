@@ -36,6 +36,10 @@ func Createtun0() error {
 			 return reqiperr
 		}
 
+		//Goroutine to keep the client alive 
+
+		go Keepalive()
+
 	   //Goroutine for read the packets from the tun0 interface
     
 	   go  Readtun0(tun)
