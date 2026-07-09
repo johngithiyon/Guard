@@ -3,6 +3,8 @@ package serverservices
 import (
 	"log"
 	"net"
+	"time"
+
 	"github.com/songgao/water"
 )
 
@@ -28,9 +30,22 @@ func PacketReceiver(conn net.PacketConn,tun *water.Interface) error {
 
 		 if string(buffer[:length]) == "Ip" {
 			   Ipallocator(conn,addr)
-		 } else {
-         		 Writetun0(tun,buffer[:length])
+			   continue
+		 } else if string(buffer[:length]) == "Ping" {
+                client,ok := Clients[addr.String()]
+
+				if ok {
+                    client.Lastseen = time.Now()
+				}
+				continue
+		 } 
+
+		 client,ok := Clients[addr.String()]
+
+		 if ok {
+			 client.Lastseen = time.Now()
 		 }
-         		
+
+         Writetun0(tun,buffer[:length])     		
 	}
 }
