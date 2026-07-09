@@ -30,6 +30,10 @@ func main() {
 
 			go serverservices.Sendresp(conn,tun)
 
+			//Goroutine to check the client is them alive or not 
+
+			go serverservices.Checkalive()
+
 	  }
 
 	  //make the process keep alive 
