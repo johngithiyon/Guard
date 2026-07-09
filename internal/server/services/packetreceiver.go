@@ -27,6 +27,8 @@ func PacketReceiver(conn net.PacketConn,tun *water.Interface) error {
 			  continue // I did not have to stop the loop so that other client did not suffer
 		 }
 
+		 log.Println("RECEIEVED",string(buffer[:length]))
+
 
 		 if string(buffer[:length]) == "Ip" {
 			   Ipallocator(conn,addr)
