@@ -9,6 +9,8 @@ import (
 
 func Checkalive() {
 
+	        for {
+
 	       //Wait for every 5 seconds 
 	   
 	       time.Sleep(5 * time.Second)
@@ -25,4 +27,5 @@ func Checkalive() {
 					   Ips = append(Ips, client.Clientaddr)
 				}
 		   }
+	    }   
 }
