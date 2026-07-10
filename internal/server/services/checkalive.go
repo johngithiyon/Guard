@@ -17,9 +17,9 @@ func Checkalive() {
 
 		   for _,client  := range Clients {
 
-			    //Set the timeout for the client is 30 seconds
+			    //Set the timeout for the client is 50 seconds
 
-			    if time.Since(client.Lastseen) > 30 * time.Second {
+			    if time.Since(client.Lastseen) > 50 * time.Second {
 
 					   log.Println("client disconnected")
 					    
