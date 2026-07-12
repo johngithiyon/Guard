@@ -1,2 +1,2 @@
-vpnserver_ip: your_vpnserver_publicip
+vpnserver_ip: your_vpnserver_publicip   #if it is a ipv6 address give it like this [ipv6publicip]
 vpnserver_port: your_vpnserver_portnumber
