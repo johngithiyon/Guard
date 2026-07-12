@@ -1,11 +1,21 @@
 package main
 
 import (
+	"log"
+
+	serverconfig "github.com/johngithiyon/Guard/internal/server/config"
 	"github.com/johngithiyon/Guard/internal/server/services"
 	serversetup "github.com/johngithiyon/Guard/internal/server/setup"
 )
 
 func main() {
+
+	  loadconfigerr := serverconfig.Loadconfig()
+
+	  if loadconfigerr != nil {
+		  log.Println("Load config err",loadconfigerr)
+		  return 
+	  }
 
 	  conn,connerr := serverservices.Createconnection()
 
