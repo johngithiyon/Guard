@@ -3,6 +3,8 @@ package serverservices
 import (
 	"log"
 	"net"
+
+	serverconfig "github.com/johngithiyon/Guard/internal/server/config"
 )
 
 func Createconnection() (net.PacketConn,error) {
@@ -10,9 +12,7 @@ func Createconnection() (net.PacketConn,error) {
 	  
 	log.Println("Server Is Listening ...")     
 
-	// Creates a Udp socket listening on the port 8080 for testing I use localhost you have give you server public Ip address
-
-	conn,connerr := net.ListenPacket("udp",":8080")
+	conn,connerr := net.ListenPacket("udp",serverconfig.Config.VpnServer+":"+serverconfig.Config.VpnServerPort)
 	
 	if connerr != nil {
 		   log.Println("Connection err",connerr)
