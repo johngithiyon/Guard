@@ -4,7 +4,7 @@ import (
 	"net"
 	"time"
 
-	"github.com/johngithiyon/Guard/internal/server/models"
+	servermodels "github.com/johngithiyon/Guard/internal/server/models"
 )
 
 //centralized slice for the ip list
@@ -20,7 +20,7 @@ var Allocated = make(map[string]net.Addr)
 
 //Store the heartbeat for the clients 
 
-var Clients = make(map[string]*models.Client)
+var Clients = make(map[string]*servermodels.Client)
 
 //Function for the ipallocation
 
@@ -34,7 +34,7 @@ func Ipallocator(conn net.PacketConn,addr net.Addr)  {
 
 		 Allocated[Ips[0]] = addr
 
-		client := &models.Client{
+		client := &servermodels.Client{
               Clientaddr: Ips[0],
 			  Lastseen: time.Now(),
 		}
