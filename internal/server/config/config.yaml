@@ -1,2 +1,2 @@
-vpnserver_ip: 2409:40f4:102d:563f:2cd9:ccb2:dbf7:1f01 
-vpnserver_port: 8080
+vpnserver_ip: your_vpnserver_publicip
+vpnserver_port: your_vpnserver_port
