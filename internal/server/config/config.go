@@ -11,7 +11,7 @@ var Config servermodels.Config
 
 func Loadconfig() error {
 
-	    readata,readerr := os.ReadFile("config.yaml")
+	    readata,readerr := os.ReadFile("../../internal/server/config/config.yaml")
 
 		if readerr != nil {
 			 return readerr
