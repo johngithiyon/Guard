@@ -10,7 +10,9 @@ import (
 func Createconnection() (net.PacketConn,error) {
    
 	  
-	log.Println("Server Is Listening ...")     
+	log.Println("Server Is Listening ...")  
+	
+	//if it is a ipv6 address give it like this [ipv6publicip]
 
 	conn,connerr := net.ListenPacket("udp",serverconfig.Config.VpnServer+":"+serverconfig.Config.VpnServerPort)
 	
